@@ -1,0 +1,42 @@
+input,
+label,
+textarea {
+  display: inline-block;
+  width: 250px;
+  height: 25px;
+}
+input {
+  border: 1px solid rgb(158, 158, 158);
+  border-radius: 5%;
+}
+label {
+  text-align: left;
+}
+textarea {
+  height: 70px;
+}
+body {
+  background-color: rgb(218, 216, 216);
+  width: 100%;
+  margin: 0%;
+  text-align: center;
+}
+.gender {
+  margin-right: 50px;
+}
+
+#submitbutton {
+  width: auto;
+}
+
+#resetbutton {
+  width: auto;
+}
+
+#checkbox {
+  width: 25px;
+}
+
+#checkboxdiv {
+  align-items: initial;
+}

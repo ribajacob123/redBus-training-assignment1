@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script type="text/javascript" src="main.js"></script>
+
+</head>
+
+<body>
+    <br>
+    <h1><u>Registration form</u></h1>
+    <br>
+    <form id="myForm" action="submission.html" name="myForm" onsubmit="return validateForm(myForm)" required>
+        <div class="element">
+            <label>First Name</label>
+            <input class="formValue" id="firstname" type="text" value="" title="First name" name="fname" >
+        </div><br>
+
+        <div class="element">
+            <label>Last Name</label>
+            <input class="formValue" id="lastname" type="text" pattern="[A-Za-z]{2,}" required title="Last name"
+                name="lname">
+        </div><br>
+
+        <div class="element">
+            <label>Nick Name</label>
+            <input class="formValue" type="text" id="nickname" pattern="[A-Za-z]{2,}" title="Nick name" name="nname">
+        </div><br>
+
+        <div class="element">
+            <label>Email</label>
+            <input class="formValue" type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required
+                title="Email address" name="email">
+        </div><br>
+
+        <div>
+            <label>Password</label>
+            <input class="formValue" type="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                name="password" required
+                title="Password should contain minimum 8 characters with at least one uppercase character one lowercase character and a number">
+        </div><br>
+
+        <div>
+            <label>Date of Birth</label>
+            <input class="formValue" type="date" id="dob" pattern="\d{1,2}/\d{1,2}/\d{4}" required>
+        </div><br>
+
+        <div>
+            <label class="gender">Gender</label>
+
+            <input type="radio" name="gender" value="Male" id="Male" style="width: auto;">
+            <label for="Male" style="margin: 0%; width: auto;">Male</label>
+
+            <input type="radio" name="gender" value="Female" id="Female" style="width: auto;">
+            <label for="Female" style="margin: 0%;width: auto;">Female</label>
+
+            <input type="radio" name="gender" value="Others" id="Others" style="width: auto;">
+            <label for="Others" style="margin: 0%; width: auto;">Others</label>
+
+        </div><br>
+
+        <div>
+            <label>Mobile</label>
+            <input class="formValue" type="tel" id="tel" pattern="[0-9]{10}" required>
+        </div><br>
+
+        <div>
+            <label>Address</label>
+            <textarea class="formValue" id="address"></textarea>
+        </div><br>
+
+        <div>
+            <input id="submitbutton" type="submit" value="Submit" onclick="store();">
+            <input id="resetbutton" type="reset" value="Reset">
+        </div><br>
+        <br>
+        <div id="checkboxdiv">
+            <label id="checkbox-label">Check to store your data</label>
+            <input id="checkbox" type="checkbox">
+        </div>
+    </form>
+</body>
+
+</html>
