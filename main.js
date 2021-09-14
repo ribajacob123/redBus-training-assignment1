@@ -1,6 +1,25 @@
 function validateForm(myForm) {
     if (myForm.fname.value == "" || myForm.fname.value == null) {
-        alert("Name must be filled out");
+        alert("First name cannot be blank");
+        return false;
+    }
+
+    if (myForm.lname.value == "" || myForm.lname.value == null) {
+        alert("Last name cannot be blank");
+        return false;
+    }
+
+
+    //for radio buttons
+    var flag = 0
+    let radios = document.getElementsByName('gender');
+    for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked == true) {
+            flag = 1
+        }
+    }
+    if (flag == 0) {
+        alert("Gender field cannot be empty");
         return false;
     }
 }
