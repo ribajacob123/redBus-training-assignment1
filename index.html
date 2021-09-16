@@ -17,7 +17,7 @@
     <br>
     <h1><u>Registration form</u></h1>
     <br>
-    <form id="myForm" action="submission.html" name="myForm" onsubmit="return validateForm(myForm)" required>
+    <form id="myForm" action="#" name="myForm" onsubmit="return validateForm(myForm)" required>
         <div class="element">
             <label>First Name</label>
             <input class="formValue" id="firstname" type="text" value="" title="First name" name="fname" >
@@ -25,31 +25,28 @@
 
         <div class="element">
             <label>Last Name</label>
-            <input class="formValue" id="lastname" type="text" pattern="[A-Za-z]{2,}" required title="Last name"
+            <input class="formValue" id="lastname" type="text" title="Last name"
                 name="lname">
         </div><br>
 
         <div class="element">
             <label>Nick Name</label>
-            <input class="formValue" type="text" id="nickname" pattern="[A-Za-z]{2,}" title="Nick name" name="nname">
+            <input class="formValue" type="text" id="nickname" pattern="[A-Za-z]{2,}" title="Please enter the nickname in correct format" name="nname">
         </div><br>
 
         <div class="element">
             <label>Email</label>
-            <input class="formValue" type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required
-                title="Email address" name="email">
+            <input class="formValue" type="email" id="email" title="Email address" name="email"> 
         </div><br>
 
         <div>
             <label>Password</label>
-            <input class="formValue" type="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                name="password" required
-                title="Password should contain minimum 8 characters with at least one uppercase character one lowercase character and a number">
+            <input class="formValue" type="password" id="password" name="password">
         </div><br>
 
         <div>
             <label>Date of Birth</label>
-            <input class="formValue" type="date" id="dob" pattern="\d{1,2}/\d{1,2}/\d{4}" required>
+            <input name = "date" class="formValue" type="date" id="dob" required>
         </div><br>
 
         <div>
@@ -68,7 +65,7 @@
 
         <div>
             <label>Mobile</label>
-            <input class="formValue" type="tel" id="tel" pattern="[0-9]{10}" required>
+            <input name="phoneno" class="formValue" type="tel" id="tel">
         </div><br>
 
         <div>

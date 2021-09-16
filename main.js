@@ -1,19 +1,71 @@
-function validateForm(myForm) {
-    if (myForm.fname.value == "" || myForm.fname.value == null) {
-        alert("First name cannot be blank");
-        return false;
-    }
+function validateForm(regForm) {
 
-    if (myForm.lname.value == "" || myForm.lname.value == null) {
-        alert("Last name cannot be blank");
-        return false;
-    }
+    const formdata = Array.from(document.querySelectorAll(".formValue")).reduce((acc, input) => ({
+        ...acc,
+        [input.id]: input.value
+    }), {});
+    const name_regex = /[A-Za-z]{2,}$/
+    const email_regex = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/
+    const phone_regex = /[0-9]{10}$/;
+    const password_regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
+    
 
+    const data = JSON.parse(JSON.stringify(formdata))
+
+    for (const x in data) {
+        let elementID = document.getElementById(x).id;
+        let element = document.getElementById(x).value;
+        switch (elementID) {
+            case "firstname":
+                if (!name_regex.test(element)) {
+                    alert("First name cannot be blank and should contain at least 2 alphabets")
+                    return false;
+                }
+                break;
+            case "lastname":
+                if (!name_regex.test(element)) {
+                    alert("Last name cannot be blank and should contain at least 2 alphabets")
+                    return false;
+                }
+                break;
+            case "email":
+                if (!email_regex.test(element)) {
+                    alert("Please enter a valid email id");
+                    return false;
+                }
+                break;
+            case "password":
+                if (!password_regex.test(element)) {
+                    alert("Password should contain minimum 8 characters with at least one uppercase character one lowercase character and a number");
+                    return false;
+                }
+                break;
+            case "dob":
+                if(element == null || element == ""){
+                    alert("Date of birth is mandatory")
+                    return false;
+                }
+                break;
+            case "tel":
+                if (!phone_regex.test(element)){
+                    alert("Please enter a valid phone number")
+                    return false;
+                }
+                break;
+            case "address":
+                if(element.length<10){
+                    alert("Address too short");
+                    return false;
+                }
+                break;
+        }
+
+    }
 
     //for radio buttons
-    var flag = 0
+    let flag = 0
     let radios = document.getElementsByName('gender');
-    for (var i = 0; i < radios.length; i++) {
+    for (let i = 0; i < radios.length; i++) {
         if (radios[i].checked == true) {
             flag = 1
         }
@@ -22,6 +74,8 @@ function validateForm(myForm) {
         alert("Gender field cannot be empty");
         return false;
     }
+
+
 }
 
 function store() {
@@ -32,12 +86,12 @@ function store() {
             [input.id]: input.value
         }), {});
 
-        console.log(JSON.stringify(formdata))
+        //console.log(JSON.stringify(formdata))
 
         localStorage.setItem('user', (JSON.stringify(formdata)))
 
         let radios = document.getElementsByName('gender');
-        for (var i = 0; i < radios.length; i++) {
+        for (let i = 0; i < radios.length; i++) {
             if (radios[i].checked == true) {
                 localStorage.setItem('gender', radios[i].value);
             }
@@ -48,15 +102,15 @@ function store() {
 
 window.onload = function () {
 
-    var user = JSON.parse(localStorage.getItem('user'));
+    const user = JSON.parse(localStorage.getItem('user'));
 
     for (const x in user) {
         document.getElementById(x).value = user[x];
     }
 
-    var radios = document.getElementsByName("gender");
-    var val = localStorage.getItem('gender');
-    for (var i = 0; i < radios.length; i++) {
+    let radios = document.getElementsByName("gender");
+    let val = localStorage.getItem('gender');
+    for (let i = 0; i < radios.length; i++) {
         if (radios[i].value == val) {
             radios[i].checked = true;
         }
