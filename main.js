@@ -8,7 +8,7 @@ function validateForm(regForm) {
     const email_regex = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/
     const phone_regex = /[0-9]{10}$/;
     const password_regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
-    
+
 
     const data = JSON.parse(JSON.stringify(formdata))
 
@@ -41,19 +41,19 @@ function validateForm(regForm) {
                 }
                 break;
             case "dob":
-                if(element == null || element == ""){
+                if (element == null || element == "") {
                     alert("Date of birth is mandatory")
                     return false;
                 }
                 break;
             case "tel":
-                if (!phone_regex.test(element)){
+                if (!phone_regex.test(element)) {
                     alert("Please enter a valid phone number")
                     return false;
                 }
                 break;
             case "address":
-                if(element.length<10){
+                if (element.length < 10) {
                     alert("Address too short");
                     return false;
                 }
