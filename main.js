@@ -8,6 +8,7 @@ function validateForm(regForm) {
     const email_regex = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/
     const phone_regex = /[0-9]{10}$/;
     const password_regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
+    const date_regex = /^(194[5-9]|19[5-9]\d|200\d|201[0-3])-([0-9]{2})-([0-9]{2})$/
 
 
     const data = JSON.parse(JSON.stringify(formdata))
@@ -41,8 +42,8 @@ function validateForm(regForm) {
                 }
                 break;
             case "dob":
-                if (element == null || element == "") {
-                    alert("Date of birth is mandatory")
+                if (!date_regex.test(element)) {
+                    alert("Please enter a Valid date")
                     return false;
                 }
                 break;
